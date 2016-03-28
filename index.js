@@ -12,7 +12,7 @@ const MIN_POINTS = 5;
 const MAX_POINTS = 10;
 const NUM_CELLS = 3;
 const VARIANCE = 0.25;
-const DEFAULT_SEED = 'shoo';
+const DEFAULT_SEED = null;
 
 const COLOR_GROUPS = Object.keys(colorbrewer).filter(k => !/^Set/.test(k));
 
@@ -36,7 +36,7 @@ function Polygen(opts) {
 }
 Polygen.prototype = {
   make: function() {
-    const rng = new Alea(this._seed);
+    const rng = typeof this._seed === 'string' ? new Alea(this._seed) : new Alea();
 
     const points = _makePoints(this._size, this._numCells, this._variance, rng);
     const normalizedPoints = _normalizePoints(points);
