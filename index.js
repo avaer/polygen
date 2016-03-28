@@ -5,7 +5,7 @@ const Alea = require('alea');
 const delaunayFast = require('delaunay-fast');
 const colorbrewer = require('colorbrewer');
 
-const {floor} = Math;
+const floor = Math.floor;
 
 const SIZE = 128;
 const MIN_POINTS = 5;

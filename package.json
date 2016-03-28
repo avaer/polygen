@@ -1,6 +1,6 @@
 {
   "name": "polygen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Polygon art generated from a random seed",
   "main": "index.js",
   "scripts": {
