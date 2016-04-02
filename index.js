@@ -2,6 +2,7 @@
 "use strict";
 
 const Alea = require('alea');
+const Canvas = require('canvas');
 const delaunayFast = require('delaunay-fast');
 const colorbrewer = require('colorbrewer');
 
@@ -66,22 +67,10 @@ function polygen(opts) {
 
 module.exports = polygen;
 
-const _makeCanvas = (() => {
-  if (typeof document !== 'undefined') {
-    return opts => {
-      const canvas = document.createElement('canvas');
-      canvas.width = opts.width;
-      canvas.height = opts.height;
-      return canvas;
-    };
-  } else {
-    const Canvas = global['require']('canvas');
-    return opts => {
-      const canvas = new Canvas(opts.width, opts.height);
-      return canvas;
-    };
-  }
-})();
+const _makeCanvas = opts => {
+  const canvas = new Canvas(opts.width, opts.height);
+  return canvas;
+};
 
 function _makePoints(size, numCells, variance, rng) {
   function _map(num, inRange, outRange ) {
