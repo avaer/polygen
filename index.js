@@ -79,7 +79,7 @@ function _makePoints(size, numCells, variance, rng) {
 
   const width = size;
   const height = size;
-  const cellSize = SIZE / numCells;
+  const cellSize = size / numCells;
   const varianceFactor = cellSize * variance;
   const bleedX = ((numCells * cellSize) - width)/2;
   const bleedY = ((numCells * cellSize) - height)/2;
